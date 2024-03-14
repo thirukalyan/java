@@ -1,0 +1,66 @@
+public class stringconstructor {
+    public static void main(String[] args) {
+        // String Constructors
+        String str1 = new String();
+        String str2 = new String("Hello"); // String from a literal
+        char[] charArray = {'W', 'o', 'r', 'l', 'd'};
+        String str3 = new String(charArray); // String from char array
+        byte[] byteArray = {65, 66, 67, 68};
+        String str4 = new String(byteArray); // String from byte array
+        StringBuffer stringBuffer = new StringBuffer("Welcome");
+        String str5 = new String(stringBuffer); // String from StringBuffer
+
+        System.out.println("String Constructors:");
+        System.out.println("str1: " + str1);
+        System.out.println("str2: " + str2);
+        System.out.println("str3: " + str3);
+        System.out.println("str4: " + str4);
+        System.out.println("str5: " + str5);
+
+        // String Methods
+        String text = "Hello, World!";
+        System.out.println("\nString Methods:");
+
+        // length()
+        System.out.println("Length of the string: " + text.length());
+
+        // charAt()
+        System.out.println("Character at index 4: " + text.charAt(4));
+
+        // substring()
+        System.out.println("Substring from index 7 to end: " + text.substring(7));
+        System.out.println("Substring from index 7 to 12: " + text.substring(7, 12));
+
+        // indexOf()
+        System.out.println("Index of 'o': " + text.indexOf('o'));
+
+        // lastIndexOf()
+        System.out.println("Last index of 'o': " + text.lastIndexOf('o'));
+
+        // equals()
+        String str6 = "Hello, World!";
+        System.out.println("Are str6 and text equal? " + str6.equals(text));
+
+        // equalsIgnoreCase()
+        String str7 = "HELLO, world!";
+        System.out.println("Are str7 and text equal ignoring case? " + str7.equalsIgnoreCase(text));
+
+        // toUpperCase()
+        System.out.println("Uppercase version of text: " + text.toUpperCase());
+
+        // toLowerCase()
+        System.out.println("Lowercase version of text: " + text.toLowerCase());
+
+        // concat()
+        String concatResult = text.concat(" How are you?");
+        System.out.println("Concatenated string: " + concatResult);
+
+        // replace()
+        String replacedText = text.replace('o', 'X');
+        System.out.println("After replacing 'o' with 'X': " + replacedText);
+
+        String stringWithSpaces = "  Hello, World!   ";
+        System.out.println("Original string with leading and trailing spaces: '" + stringWithSpaces + "'");
+        System.out.println("Trimmed string: '" + stringWithSpaces.trim() + "'");
+    }
+}

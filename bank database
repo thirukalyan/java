@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class bankdatabase{
+    private double[] accounts;
+
+    // Constructor to initialize accounts with 0 balance
+    public BankDatabase(int numberOfAccounts) {
+        accounts = new double[numberOfAccounts];
+    }
+
+    // Method to deposit a certain amount into an account
+    public void deposit(int accountNumber, double amount) {
+        if (accountNumber >= 0 && accountNumber < accounts.length && amount > 0) {
+            accounts[accountNumber] += amount;
+            System.out.println("Deposit of Rs. " + amount + " successful.");
+        } else {
+            System.out.println("Invalid account number or amount.");
+        }
+    }
+
+    // Method to withdraw a certain amount from an account
+    public void withdraw(int accountNumber, double amount) {
+        if (accountNumber >= 0 && accountNumber < accounts.length && amount > 0) {
+            if (accounts[accountNumber] >= amount) {
+                accounts[accountNumber] -= amount;
+                System.out.println("Withdrawal of Rs. " + amount + " successful.");
+            } else {
+                System.out.println("Insufficient balance.");
+            }
+        } else {
+            System.out.println("Invalid account number or amount.");
+        }
+    }
+
+    // Method to return the balance in an account
+    public double getBalance(int accountNumber) {
+        if (accountNumber >= 0 && accountNumber < accounts.length) {
+            return accounts[accountNumber];
+        } else {
+            System.out.println("Invalid account number.");
+            return -1; // Return -1 to indicate invalid account number
+        }
+    }
+}

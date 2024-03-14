@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.Arrays;
+public class eqaullengtharrays {
+    public static void main(String[] args) {
+        // Sample arrays
+        int[] array1 = {1, 2, 3, 4, 5};
+        int[] array2 = {10, 20, 30};
+
+        // Check if arrays have equal length
+        if (array1.length != array2.length) {
+            // Find the length of the smallest array
+            int minLength = Math.min(array1.length, array2.length);
+
+            // Make both arrays equal using Arrays.copyOf()
+            array1 = Arrays.copyOf(array1, minLength);
+            array2 = Arrays.copyOf(array2, minLength);
+        }
+
+        // Print the modified arrays
+        System.out.println("Modified array1: " + Arrays.toString(array1));
+        System.out.println("Modified array2: " + Arrays.toString(array2));
+    }
+}

@@ -1,0 +1,48 @@
+import java.util.Scanner.*;
+public class stringbuilderstringbuffer{
+    public static void main(String[] args) {
+        StringBuilder stringBuilder = new StringBuilder();
+        StringBuffer stringBuffer = new StringBuffer();
+
+        stringBuilder.append("Hello");
+        stringBuilder.append(" ");
+        stringBuilder.append("World");
+
+        stringBuffer.append("Hello");
+        stringBuffer.append(" ");
+        stringBuffer.append("World");
+
+        System.out.println("StringBuilder: " + stringBuilder.toString());
+        System.out.println("StringBuffer: " + stringBuffer.toString());
+
+        // Performance comparison between StringBuilder and StringBuffer
+        int iterations = 1000000;
+        long startTime, endTime;
+
+        // StringBuilder performance test
+        startTime = System.nanoTime();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < iterations; i++) {
+            sb.append("Iteration ").append(i).append(": ");
+        }
+        String resultBuilder = sb.toString();
+        endTime = System.nanoTime();
+        long durationBuilder = endTime - startTime;
+
+        // StringBuffer performance test
+        startTime = System.nanoTime();
+        StringBuffer sf = new StringBuffer();
+        for (int i = 0; i < iterations; i++) {
+            sf.append("Iteration ").append(i).append(": ");
+        }
+        String resultBuffer = sf.toString();
+        endTime = System.nanoTime();
+        long durationBuffer = endTime - startTime;
+
+        // Print results
+        System.out.println("\nPerformance Comparison:");
+        System.out.println("Iterations: " + iterations);
+        System.out.println("Time taken by StringBuilder: " + durationBuilder + " nanoseconds");
+        System.out.println("Time taken by StringBuffer: " + durationBuffer + " nanoseconds");
+    }
+}

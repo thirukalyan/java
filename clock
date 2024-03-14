@@ -1,0 +1,78 @@
+public class Clock {
+    private int hours;
+    private int minutes;
+    private int seconds;
+    private String meridiem; // AM or PM
+
+    // Constructor to initialize the time and set it to AM/PM mode
+    public Clock(int hours, int minutes, int seconds) {
+        if (isValidTime(hours, minutes, seconds)) {
+            this.hours = hours;
+            this.minutes = minutes;
+            this.seconds = seconds;
+            setMeridiem();
+        } else {
+            System.out.println("Invalid time.");
+        }
+    }
+
+    // Method to check the validity of hours, minutes, and seconds
+    private boolean isValidTime(int hours, int minutes, int seconds) {
+        return (hours >= 0 && hours < 24 && minutes >= 0 && minutes < 60 && seconds >= 0 && seconds < 60);
+    }
+
+    // Method to set the time to AM/PM mode
+    private void setMeridiem() {
+        if (hours < 12) {
+            meridiem = "AM";
+        } else {
+            meridiem = "PM";
+            if (hours > 12) {
+                hours -= 12;
+            }
+        }
+    }
+
+    // Method to display the time
+    public void displayTime() {
+        System.out.println("Time: " + hours + ":" + minutes + ":" + seconds + " " + meridiem);
+    }
+
+    // Getters and setters for hours, minutes, and seconds
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        if (hours >= 0 && hours < 24) {
+            this.hours = hours;
+            setMeridiem();
+        } else {
+            System.out.println("Invalid hours.");
+        }
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        if (minutes >= 0 && minutes < 60) {
+            this.minutes = minutes;
+        } else {
+            System.out.println("Invalid minutes.");
+        }
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        if (seconds >= 0 && seconds < 60) {
+            this.seconds = seconds;
+        } else {
+            System.out.println("Invalid seconds.");
+        }
+    }
+}

@@ -1,0 +1,23 @@
+import java.io.*;
+public class primitivedatatype {
+    public static void main(String args[])
+    {
+        byte bytevar = 100;
+        short shortvar = 1000;
+        int intvar = 2768;
+        long longvar=215637724;
+        float floatvar= 12.34f;
+        double doublevar=2422.546877281;
+        char charvar='h';
+        boolean boolvar=true;
+        System.out.println("the primitive datatypes are:");
+                System.out.println("byte:"+bytevar);
+                System.out.println("short:"+shortvar);
+        System.out.println("int:"+intvar);
+        System.out.println("long:"+longvar);
+        System.out.println("float:"+floatvar);
+        System.out.println("double:"+doublevar);
+        System.out.println("char:"+charvar);
+        System.out.println("boolean:"+boolvar);
+    }
+}

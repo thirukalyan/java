@@ -1,0 +1,24 @@
+import java.util.*;
+import java.io.*;
+public class validornot
+{ public static void main(String args[])
+    {
+        String s1,s2;
+        boolean result;
+        Scanner s=new Scanner(System.in);
+        System.out.println("enter username1:");
+        s1 = s.nextLine();
+        System.out.println("enter username2");
+        s2 = s.nextLine();
+        result=s1.equals(s2);
+        if(result==true)
+        {
+            System.out.println("user name is valid.");
+        }
+        else {
+            System.out.println("username is not valid");
+        }
+
+
+    }
+}

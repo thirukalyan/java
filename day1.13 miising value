@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class MissingNumbersSeries {
+    public static void main(String[] args) {
+        int[] series = {1, 5, 11, 19}; // Given series
+        int start = series[0]; // Starting number of the series
+        int end = series[series.length - 1]; // Ending number of the series
+
+        List<Integer> missingNumbers = findMissingNumbers(start, end, series);
+        
+        if (missingNumbers.isEmpty()) {
+            System.out.println("No missing numbers in the series.");
+        } else {
+            System.out.println("Missing numbers in the series:");
+            for (int num : missingNumbers) {
+                System.out.println(num);
+            }
+        }
+    }
+
+    // Method to find missing numbers in the series
+    public static List<Integer> findMissingNumbers(int start, int end, int[] series) {
+        List<Integer> missingNumbers = new ArrayList<>();
+        int index = 0; // Index for traversing the given series
+        
+        // Loop through the range from start to end and find missing numbers
+        for (int i = start; i <= end; i += 2) {
+            if (index < series.length && series[index] == i) {
+                index++;
+            } else {
+                missingNumbers.add(i);
+            }
+        }
+        
+        return missingNumbers;
+    }
+}

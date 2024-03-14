@@ -1,0 +1,44 @@
+import java.io.*;
+public class datatypeconversion {
+    public static void main(String[] args) {
+        // Implicit Conversion (Widening)
+        byte byteVar = 10;
+        short shortVar = byteVar;
+        int intVar = shortVar;
+        long longVar = intVar;
+        float floatVar = longVar;
+        double doubleVar = floatVar;
+
+        System.out.println("Implicit Conversion (Widening):");
+        System.out.println("Byte: " + byteVar);
+        System.out.println("Short: " + shortVar);
+        System.out.println("Int: " + intVar);
+        System.out.println("Long: " + longVar);
+        System.out.println("Float: " + floatVar);
+        System.out.println("Double: " + doubleVar);
+
+        doubleVar = 12345679.123456789;
+        floatVar = (float) doubleVar;
+        longVar = (long) floatVar;
+        intVar = (int) longVar;
+        shortVar = (short) intVar;
+        byteVar = (byte) shortVar;
+
+        System.out.println("\nExplicit Conversion (Narrowing):");
+        System.out.println("Double: " + doubleVar);
+        System.out.println("Float: " + floatVar);
+        System.out.println("Long: " + longVar);
+        System.out.println("Int: " + intVar);
+        System.out.println("Short: " + shortVar);
+        System.out.println("Byte: " + byteVar);
+
+
+        byteVar = 127;
+        byteVar++;
+        System.out.println("\nOverflow Scenario for byte: " + byteVar);
+
+        byteVar = -128;
+        byteVar--;
+        System.out.println("Underflow Scenario for byte: " + byteVar);
+    }
+}

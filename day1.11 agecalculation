@@ -1,0 +1,19 @@
+public class ageofoldandyoungbro{
+    public static void main(String[] args) {
+        int personAge = 28;
+        int youngerBrotherAge = 24;
+        int olderBrotherAgeWhen5 = 56;
+
+        // Calculate the constant age difference between the person and his younger brother
+        int ageDifference = personAge - youngerBrotherAge;
+
+        // Calculate the person's age when the older brother is 56
+        int personAgeWhenOlderBrotherIs56 = olderBrotherAgeWhen5 + ageDifference;
+
+        // Calculate the age of the younger brother when the older brother was 5
+        int youngerBrotherAgeWhenOlderBrotherWas5 = 5- ageDifference;
+
+        System.out.println("When the older brother is 56, the person's age is: " + personAgeWhenOlderBrotherIs56);
+        System.out.println("When the older brother was 5, the age of the younger brother was: " + youngerBrotherAgeWhenOlderBrotherWas5);
+    }
+}

@@ -1,0 +1,20 @@
+public class PrimitiveDataTypesDemo {
+    public static void main(String[] args) {
+        byte byteVar = 127; // 8-bit signed integer
+        short shortVar = 32000; // 16-bit signed integer
+        int intVar = 2000000000; // 32-bit signed integer
+        long longVar = 9000000000000000000L; // 64-bit signed integer
+        float floatVar = 3.14f; // 32-bit floating-point
+        double doubleVar = 3.14159; // 64-bit floating-point
+        char charVar = 'A'; // 16-bit Unicode character
+        boolean booleanVar = true; // true or false
+        System.out.println("Byte: " + byteVar);
+        System.out.println("Short: " + shortVar);
+        System.out.println("Int: " + intVar);
+        System.out.println("Long: " + longVar);
+        System.out.println("Float: " + floatVar);
+        System.out.println("Double: " + doubleVar);
+        System.out.println("Char: " + charVar);
+        System.out.println("Boolean: " + booleanVar);
+    }
+}

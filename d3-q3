@@ -1,0 +1,33 @@
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
+public class NumberFormatExceptionHandling {
+    public static void main(String[] args) {
+        try {
+            // Parsing a Non-Numeric String
+            String nonNumericString = "abc";
+            int parsedInt = Integer.parseInt(nonNumericString); // This will throw NumberFormatException
+
+            // Reading User Input Without Validation
+            String userInput = "123abc";
+            int inputInt = Integer.parseInt(userInput); // This may throw NumberFormatException
+
+            // Formatting Issues in “Decimal Format”
+            String decimalString = "12,34";
+            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            double formattedDouble = decimalFormat.parse(decimalString).doubleValue(); // This will throw ParseException
+
+            // Incorrectly using localized decimal separators
+            DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+            symbols.setDecimalSeparator(',');
+            DecimalFormat incorrectFormat = new DecimalFormat("#,##0.00", symbols);
+            double incorrectDouble = incorrectFormat.parse("12.34").doubleValue(); // This will throw ParseException
+        } catch (NumberFormatException e) {
+            System.out.println("Number Format Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
+    }
+}

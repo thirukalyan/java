@@ -1,0 +1,41 @@
+
+
+public class methodoverloading{
+    static int sum(int a, int b) {
+        return a + b;
+    }
+
+    static int sum(int a, int b, int c) {
+        return a + b + c;
+    }
+    static double sum(int a, double b) {
+        return (int) (a + b);
+    }
+
+    static double sum(double a, double b) {
+        return a + b;
+    }
+
+    // Method overloading by interchanging the parameters
+    static double sum(double a, int b) {
+        return (int) (a + b);
+    }
+
+    static double sum(int a, double b, int c) {
+        return (int) (a + b + c);
+    }
+
+    public static void main(String[] args) {
+        // Testing method overloading by increasing and decreasing the number of parameters
+        System.out.println("Sum of two numbers: " + sum(5, 10));
+        System.out.println("Sum of three numbers: " + sum(5, 10, 15));
+
+        // Testing method overloading by changing the data types of parameters
+        System.out.println("Sum of int and double: " + sum(5, 10.5));
+        System.out.println("Sum of double numbers: " + sum(5.5, 10.5));
+
+        // Testing method overloading by interchanging the parameters
+        System.out.println("Sum of double and int: " + sum(5.5, 10));
+        System.out.println("Sum of int, double, and int: " + sum(5, 10.5, 15));
+    }
+}

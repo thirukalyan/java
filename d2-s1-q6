@@ -1,0 +1,57 @@
+
+// Tree interface
+interface Tree {
+    void fruits(String type, int quantity);
+    void leaves(String color, int size, String shape);
+    void flowers(String color, String scent, int petals, boolean hasPollen);
+}
+
+// Branch1 implementing Tree interface
+class Branch1 implements Tree {
+    @Override
+    public void fruits(String type, int quantity) {
+        System.out.println("Branch1: " + quantity + " " + type + " fruits");
+    }
+
+    @Override
+    public void leaves(String color, int size, String shape) {
+        System.out.println("Branch1: Leaves are " + color + ", size is " + size + ", shape is " + shape);
+    }
+
+    @Override
+    public void flowers(String color, String scent, int petals, boolean hasPollen) {
+        System.out.println("Branch1: Flowers are " + color + ", scent is " + scent + ", petals are " + petals + ", has pollen: " + hasPollen);
+    }
+}
+
+// Branch2 implementing Tree interface
+class Branch2 implements Tree {
+    @Override
+    public void fruits(String type, int quantity) {
+        System.out.println("Branch2: " + quantity + " " + type + " fruits");
+    }
+
+    @Override
+    public void leaves(String color, int size, String shape) {
+        System.out.println("Branch2: Leaves are " + color + ", size is " + size + ", shape is " + shape);
+    }
+
+    @Override
+    public void flowers(String color, String scent, int petals, boolean hasPollen) {
+        System.out.println("Branch2: Flowers are " + color + ", scent is " + scent + ", petals are " + petals + ", has pollen: " + hasPollen);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Branch1 branch1 = new Branch1();
+        branch1.fruits("Apple", 5);
+        branch1.leaves("Green", 10, "Oval");
+        branch1.flowers("White", "Sweet", 5, true);
+
+        Branch2 branch2 = new Branch2();
+        branch2.fruits("Orange", 7);
+        branch2.leaves("Red", 8, "Round");
+        branch2.flowers("Yellow", "Citrus", 6, false);
+    }
+}

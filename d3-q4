@@ -1,0 +1,60 @@
+
+public class IllegalArgumentExceptionHandling {
+    public static void main(String[] args) {
+        try {
+            // Negative Argument in the method requiring non-negative values
+            int radius = -5;
+            if (radius < 0) {
+                throw new IllegalArgumentException("Radius must be non-negative.");
+            }
+            double area = calculateArea(radius);
+
+            // Invalid Enum Constant Passed to a Method
+            String direction = "North";
+            DirectionEnum directionEnum = DirectionEnum.valueOf(direction); // This will throw IllegalArgumentException
+
+            // Setting an Invalid Range for a Method Parameter
+            int age = 150;
+            if (age < 0 || age > 120) {
+                throw new IllegalArgumentException("Age must be between 0 and 120.");
+            }
+            displayAge(age);
+
+            // Empty or Null String Argument in a Method Requiring
+            String name = null;
+            if (name == null || name.isEmpty()) {
+                throw new IllegalArgumentException("Name cannot be null or empty.");
+            }
+            greetUser(name);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Illegal Argument Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
+    }
+
+    public static double calculateArea(int radius) {
+        if (radius < 0) {
+            throw new IllegalArgumentException("Radius must be non-negative.");
+        }
+        return Math.PI * radius * radius;
+    }
+
+    public static void displayAge(int age) {
+        if (age < 0 || age > 120) {
+            throw new IllegalArgumentException("Age must be between 0 and 120.");
+        }
+        System.out.println("Age: " + age);
+    }
+
+    public static void greetUser(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Name cannot be null or empty.");
+        }
+        System.out.println("Hello, " + name + "!");
+    }
+
+    enum DirectionEnum {
+        NORTH, SOUTH, EAST, WEST
+    }
+}

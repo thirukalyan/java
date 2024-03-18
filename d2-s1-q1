@@ -1,0 +1,97 @@
+
+class Numbers {
+
+    void even() {
+        System.out.println("Even numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // Method to print odd numbers from 1 to 20
+    void odd() {
+        System.out.println("Odd numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // Method to print prime numbers from 1 to 20
+    void prime() {
+        System.out.println("Prime numbers from 1 to 20:");
+        for (int i = 1; i <= 20; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // Helper method to check if a number is prime
+    boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+// Child class extending Numbers
+class ExtendedNumbers extends Numbers {
+    // Overriding even method to print even numbers from 1 to 30
+    @Override
+    void even() {
+        System.out.println("Even numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // Overriding odd method to print odd numbers from 1 to 30
+    @Override
+    void odd() {
+        System.out.println("Odd numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+
+    // Overriding prime method to print prime numbers from 1 to 30
+    @Override
+    void prime() {
+        System.out.println("Prime numbers from 1 to 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println();
+    }
+}
+
+public class evenoddprimewithparentnode {
+    public static void main(String[] args) {
+        ExtendedNumbers obj = new ExtendedNumbers();
+        // Accessing overridden methods from child class
+        obj.even();
+        obj.odd();
+        obj.prime();
+    }
+}

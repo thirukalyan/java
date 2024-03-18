@@ -1,0 +1,22 @@
+
+public class ArithmeticExceptionHandling {
+    public static void main(String[] args) {
+        try {
+            // Divided by Zero
+            int result = 10 / 0; // This will throw ArithmeticException
+
+            // Logarithm of negative or Zero
+            double logResult = Math.log(-1); // This will throw ArithmeticException
+
+            // Tan 90 Degree
+            double tanResult = Math.tan(Math.PI / 2); // This will throw ArithmeticException
+
+            // Zero power Zero
+            double zeroPowerZero = Math.pow(0, 0); // This will throw ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception occurred: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        }
+    }
+}

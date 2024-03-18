@@ -1,0 +1,83 @@
+
+
+import java.util.Arrays;
+
+// Abstract class with abstract methods
+abstract class AbstractMath {
+    // Abstract methods
+    abstract int total(int[] nums);
+    abstract double average(int[] nums);
+
+    // Concrete methods
+    double mean(int[] nums) {
+        int sum = total(nums);
+        return (double) sum / nums.length;
+    }
+
+    int mode(int[] nums) {
+        Arrays.sort(nums);
+        int mode = nums[0];
+        int maxCount = 0;
+        int currentCount = 1;
+
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1]) {
+                currentCount++;
+            } else {
+                if (currentCount > maxCount) {
+                    maxCount = currentCount;
+                    mode = nums[i - 1];
+                }
+                currentCount = 1;
+            }
+        }
+
+        // Check for the mode in the last set of numbers
+        if (currentCount > maxCount) {
+            mode = nums[nums.length - 1];
+        }
+
+        return mode;
+    }
+
+    double median(int[] nums) {
+        Arrays.sort(nums);
+        int middle = nums.length / 2;
+        if (nums.length % 2 == 1) {
+            return nums[middle];
+        } else {
+            return (double) (nums[middle - 1] + nums[middle]) / 2;
+        }
+    }
+}
+
+// Concrete class extending the abstract class
+class MathOperations extends AbstractMath {
+    @Override
+    int total(int[] nums) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    @Override
+    double average(int[] nums) {
+        int sum = total(nums);
+        return (double) sum / nums.length;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = {3, 5, 2, 5, 6, 8, 5, 9, 7, 5};
+
+        MathOperations mathOps = new MathOperations();
+
+        // Using concrete methods from abstract class
+        System.out.println("Mean: " + mathOps.mean(numbers));
+        System.out.println("Mode: " + mathOps.mode(numbers));
+        System.out.println("Median: " + mathOps.median(numbers));
+    }
+}

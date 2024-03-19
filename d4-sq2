@@ -1,0 +1,49 @@
+
+public class PrimeChecker implements Runnable {
+    private int number;
+    private boolean isPrime;
+
+    public PrimeChecker(int number) {
+        this.number = number;
+        this.isPrime = true;
+    }
+
+    public boolean isPrime() {
+        return isPrime;
+    }
+
+    @Override
+    public void run() {
+        if (number <= 1) {
+            isPrime = false;
+            return;
+        }
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int numberToCheck = 17; // Change this to the number you want to check for primality
+
+        PrimeChecker primeChecker = new PrimeChecker(numberToCheck);
+        Thread thread = new Thread(primeChecker);
+        thread.start();
+
+        try {
+            thread.join(); // Wait for the thread to finish execution
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        if (primeChecker.isPrime()) {
+            System.out.println(numberToCheck + " is prime.");
+        } else {
+            System.out.println(numberToCheck + " is not prime.");
+        }
+    }
+}

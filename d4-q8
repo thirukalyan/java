@@ -1,0 +1,42 @@
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class NthLargestNumber {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input array elements
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+        int[] arr = new int[size];
+
+        System.out.println("Enter the array elements:");
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Input N
+        System.out.print("Enter the value of N to find the Nth largest number: ");
+        int N = scanner.nextInt();
+
+        int nthLargest = findNthLargest(arr, N);
+
+        if (nthLargest != Integer.MIN_VALUE) {
+            System.out.println("The " + N + "th largest number in the array is: " + nthLargest);
+        }
+
+        scanner.close();
+    }
+
+    public static int findNthLargest(int[] arr, int N) {
+        if (N <= 0 || N > arr.length) {
+            System.out.println("Invalid value of N.");
+            return Integer.MIN_VALUE; // Return a sentinel value for invalid N
+        }
+
+        Arrays.sort(arr); // Sort the array in ascending order
+
+        return arr[arr.length - N]; // Return the Nth largest number
+    }
+}

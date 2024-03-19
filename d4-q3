@@ -1,0 +1,33 @@
+
+import java.util.*;
+public class grade
+{
+    public static void main(String args[])
+    {
+        Scanner input=new Scanner(System.in);
+        System.out.println("enter marks for 100");
+        float m1=input.nextInt();
+        float m2=input.nextInt();
+        float m3=input.nextInt();
+        float m4=input.nextInt();
+        float percentage=0;
+        percentage=((m1+m2+m3+m4)/400)*100;
+        if(percentage>=75)
+        {
+            System.out.println("A grade");
+        }
+        else if(percentage>=60 && percentage<75)
+            System.out.println("B grade");
+         else if(percentage>=50 && percentage<60)
+
+            System.out.println("C grade");
+
+        else if(percentage>=40 && percentage<50)
+
+            System.out.println("D grade");
+
+        else {
+            System.out.println("Fail");
+        }
+    }
+}

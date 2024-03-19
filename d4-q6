@@ -1,0 +1,31 @@
+
+import java.util.Scanner;
+
+public class CharacterCount {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int uppercaseCount = 0, lowercaseCount = 0, numberCount = 0;
+
+        System.out.println("Enter characters (enter * to stop):");
+
+        while (true) {
+            char ch = scanner.next().charAt(0);
+
+            if (ch == '*') {
+                break;
+            } else if (Character.isUpperCase(ch)) {
+                uppercaseCount++;
+            } else if (Character.isLowerCase(ch)) {
+                lowercaseCount++;
+            } else if (Character.isDigit(ch)) {
+                numberCount++;
+            }
+        }
+
+        System.out.println("Uppercase letters count: " + uppercaseCount);
+        System.out.println("Lowercase letters count: " + lowercaseCount);
+        System.out.println("Numbers count: " + numberCount);
+
+        scanner.close();
+    }
+}

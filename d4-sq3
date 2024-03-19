@@ -1,0 +1,18 @@
+
+public class SumOfNumbers {
+    public static void main(String[] args) {
+        int N = 5; // Change N to the desired size of the array
+        int[] numbers = {1, 2, 3, 4, 5}; // Example array of N numbers
+
+        try {
+            int sum = 0;
+            for (int i = 0; i <= N; i++) { // Loop from 0 to N (inclusive)
+                sum += numbers[i];
+            }
+            System.out.println("Sum of numbers: " + sum);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Array index out of bounds. Ensure loop variable stays within array size.");
+            e.printStackTrace();
+        }
+    }
+}
